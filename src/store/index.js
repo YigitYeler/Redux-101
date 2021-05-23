@@ -1,11 +1,13 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 //import CounterReducer from './reducers/counter.js'
-import ItemReducer from './reducers/list'
+//import ItemReducer from './reducers/list'
+import ProductReducer from './reducers/product'
+import thunk from 'redux-thunk';
 
 const reducers = combineReducers({
-    ItemReducer: ItemReducer
+    ProductReducer: ProductReducer
 })
 
-const store = createStore(reducers);
+const store = createStore(reducers, applyMiddleware(thunk));
 
 export default store;
